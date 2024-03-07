@@ -1,0 +1,8 @@
+{
+  "defaultSchema": "dataform",
+  "assertionSchema": "dataform_assertions",
+  "warehouse": "bigquery",
+  "defaultDatabase": "iron-module-415806",
+  "defaultLocation": "northamerica-northeast1"
+}
+    
