@@ -1,0 +1,16 @@
+config {
+    type: "table",
+    schema: "sources",
+    tags: ["staging", "daily"],
+    description: "Cleaned version of the raw shopify.orders table."
+}
+
+SELECT
+  id AS order_id,
+  date,
+  customer_id,
+  status AS order_status,
+  payment_id,
+  COALESCE(CAST(item_count AS int), 0) AS item_count
+FROM
+  ${ref("shopify", "orders")}
