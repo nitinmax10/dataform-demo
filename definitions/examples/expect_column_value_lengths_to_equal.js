@@ -9,13 +9,15 @@
  * @param {number} options.value - The expected length of the column values.
  */
 
-const { expect_column_value_lengths_to_equal } = require("dataform-expectations");
+const {
+    expect_column_value_lengths_to_equal
+} = require("dataform-expectations");
 
 expect_column_value_lengths_to_equal({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value",
-  value: 10
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value",
+    value: 10
 });

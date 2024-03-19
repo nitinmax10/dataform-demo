@@ -4,7 +4,7 @@
  */
 
 function countryGroup(countryCodeField) {
-  return `case
+    return `case
             when lower(${countryCodeField}) in ('us', 'ca') then 'NA'
             when lower(${countryCodeField}) in ('gb', 'fr', 'de', 'it', 'pl') then 'EU'
             when lower(${countryCodeField}) in ('AU') then lower(${countryCodeField})
@@ -13,5 +13,5 @@ function countryGroup(countryCodeField) {
 }
 
 module.exports = {
-  countryGroup
+    countryGroup
 };

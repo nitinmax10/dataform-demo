@@ -1,4 +1,3 @@
-
 /**
  * Expects the values in a specified column to be of a specific type.
  *
@@ -10,14 +9,14 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' is an object that identifies the table
-    column,
-    type,
-  } = params;
+    const {
+        source = {}, // Assuming 'source' is an object that identifies the table
+            column,
+            type,
+    } = params;
 
-  // Construct the SQL query to check for null values in the specified column
-  const sqlQuery = ctx => `
+    // Construct the SQL query to check for null values in the specified column
+    const sqlQuery = ctx => `
     SELECT
       table_name, column_name, data_type
     FROM
@@ -28,6 +27,6 @@ module.exports = (params) => {
       AND data_type <> '${type}'
   `;
 
-  // Define and return the assertion to check if there are no null values in the column
-  return assert(`expect_column_values_to_be_of_type`).query(sqlQuery)
+    // Define and return the assertion to check if there are no null values in the column
+    return assert(`expect_column_values_to_be_of_type`).query(sqlQuery)
 };

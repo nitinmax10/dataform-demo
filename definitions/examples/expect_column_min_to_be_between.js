@@ -11,14 +11,16 @@
  */
 
 // Example usage
-const { expect_column_min_to_be_between } = require("dataform-expectations");
+const {
+    expect_column_min_to_be_between
+} = require("dataform-expectations");
 
 expect_column_min_to_be_between({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value",
-  min_value: 10,
-  max_value: 100
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value",
+    min_value: 10,
+    max_value: 100
 });

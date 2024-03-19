@@ -9,15 +9,17 @@
  */
 
 // Example usage
-const { expect_table_row_count_to_equal_other_table } = require("dataform-expectations");
+const {
+    expect_table_row_count_to_equal_other_table
+} = require("dataform-expectations");
 
 expect_table_row_count_to_equal_other_table({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  target: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  }
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    target: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    }
 })

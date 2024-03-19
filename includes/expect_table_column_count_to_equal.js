@@ -10,14 +10,14 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {},
-    value,
-  } = params;
+    const {
+        source = {},
+            value,
+    } = params;
 
-  // This example uses a generic approach to retrieve column count,
-  // the actual implementation may vary based on your SQL dialect/database
-  const sqlQuery = ctx => `
+    // This example uses a generic approach to retrieve column count,
+    // the actual implementation may vary based on your SQL dialect/database
+    const sqlQuery = ctx => `
     SELECT
       column_count
     FROM (
@@ -31,6 +31,6 @@ module.exports = (params) => {
         column_count <> ${value}
   `;
 
-  // Define and return the assertion to check if column count equals the expected value
-  return assert(`expect_table_column_count_to_equal`).query(sqlQuery);
+    // Define and return the assertion to check if column count equals the expected value
+    return assert(`expect_table_column_count_to_equal`).query(sqlQuery);
 };

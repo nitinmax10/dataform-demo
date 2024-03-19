@@ -8,13 +8,13 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' is an object that identifies the table
-    column,
-  } = params;
+    const {
+        source = {}, // Assuming 'source' is an object that identifies the table
+            column,
+    } = params;
 
-  // Construct the SQL query to check if the specified column exists in the table
-  const sqlQuery = ctx => `
+    // Construct the SQL query to check if the specified column exists in the table
+    const sqlQuery = ctx => `
   SELECT
     column_name
   FROM
@@ -31,6 +31,6 @@ module.exports = (params) => {
     )
   `;
 
-  // Define and return the assertion to check if the column exists
-  return assert(`expect_column_to_exist`).query(sqlQuery)
+    // Define and return the assertion to check if the column exists
+    return assert(`expect_column_to_exist`).query(sqlQuery)
 };

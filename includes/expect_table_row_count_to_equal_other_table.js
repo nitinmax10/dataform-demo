@@ -8,13 +8,13 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {},
-    target = {},
-  } = params;
+    const {
+        source = {},
+            target = {},
+    } = params;
 
-  // Construct the SQL query to compare row counts between two tables
-  const sqlQuery = ctx => `
+    // Construct the SQL query to compare row counts between two tables
+    const sqlQuery = ctx => `
     SELECT
       source_count,
       target_count
@@ -26,6 +26,6 @@ module.exports = (params) => {
       source_count <> target_count
   `;
 
-  // Define and return the Dataform assertion to check if row counts are equal
-  return assert(`expect_table_row_count_to_equal_other_table`).query(sqlQuery);
+    // Define and return the Dataform assertion to check if row counts are equal
+    return assert(`expect_table_row_count_to_equal_other_table`).query(sqlQuery);
 };

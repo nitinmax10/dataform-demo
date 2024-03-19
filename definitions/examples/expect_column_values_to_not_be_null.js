@@ -8,12 +8,14 @@
  * @param {string} options.column - The name of the column to be checked.
  */
 
-const { expect_column_values_to_not_be_null } = require("dataform-expectations");
+const {
+    expect_column_values_to_not_be_null
+} = require("dataform-expectations");
 
 expect_column_values_to_not_be_null({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value"
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value"
 });

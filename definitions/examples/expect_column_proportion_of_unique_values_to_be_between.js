@@ -10,7 +10,9 @@
  * @param {number} options.max_value - The maximum expected proportion of unique values.
  */
 
-const { expect_column_proportion_of_unique_values_to_be_between } = require("dataform-expectations");
+const {
+    expect_column_proportion_of_unique_values_to_be_between
+} = require("dataform-expectations");
 
 expect_column_proportion_of_unique_values_to_be_between({
     source: {

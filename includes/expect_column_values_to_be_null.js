@@ -1,4 +1,3 @@
-
 /**
  * Checks if the specified column in the table contains only null values.
  *
@@ -9,13 +8,13 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' is an object that identifies the table
-    column,
-  } = params;
+    const {
+        source = {}, // Assuming 'source' is an object that identifies the table
+            column,
+    } = params;
 
-  // Construct the SQL query to check for null values in the specified column
-  const sqlQuery = ctx => `
+    // Construct the SQL query to check for null values in the specified column
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM
@@ -24,6 +23,6 @@ module.exports = (params) => {
       ${column} IS NOT NULL
   `;
 
-  // Define and return the assertion to check if there are no null values in the column
-  return assert(`expect_column_values_to_not_be_null`).query(sqlQuery)
+    // Define and return the assertion to check if there are no null values in the column
+    return assert(`expect_column_values_to_not_be_null`).query(sqlQuery)
 };

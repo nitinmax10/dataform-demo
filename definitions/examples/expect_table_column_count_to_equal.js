@@ -8,12 +8,14 @@
  */
 
 // Example usage
-const { expect_table_column_count_to_equal } = require("dataform-expectations");
+const {
+    expect_table_column_count_to_equal
+} = require("dataform-expectations");
 
 expect_table_column_count_to_equal({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  value: 6
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    value: 6
 })

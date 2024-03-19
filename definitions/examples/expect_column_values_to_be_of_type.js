@@ -9,13 +9,15 @@
  * @param {string} config.type - The expected type of the column values.
  */
 
-const { expect_column_values_to_be_of_type } = require("dataform-expectations");
+const {
+    expect_column_values_to_be_of_type
+} = require("dataform-expectations");
 
 expect_column_values_to_be_of_type({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value",
-  type: "string"
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value",
+    type: "string"
 });

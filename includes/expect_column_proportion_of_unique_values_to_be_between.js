@@ -11,31 +11,31 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {},
-    column,
-    min_value = null,
-    max_value = null,
-    strict_min = false,
-    strict_max = false,
-  } = params;
+    const {
+        source = {},
+            column,
+            min_value = null,
+            max_value = null,
+            strict_min = false,
+            strict_max = false,
+    } = params;
 
-  const min_operator = strict_min ? '<' : '<=';
-  const max_operator = strict_max ? '>' : '>=';
+    const min_operator = strict_min ? '<' : '<=';
+    const max_operator = strict_max ? '>' : '>=';
 
-  let where_condition = "";
-  if (min_value !== null && max_value === null) {
-    where_condition = `proportion_of_unique_values ${min_operator} ${min_value}}`;
-  } else if (min_value === null && max_value !== null) {
-    where_condition = `proportion_of_unique_values ${max_operator} ${max_value}`;
-  } else if (min_value !== null && max_value !== null) {
-    where_condition = `proportion_of_unique_values ${min_operator} ${min_value} OR proportion_of_unique_values ${max_operator} ${max_value}`;
-  } else {
-    throw new Error('Invalid input: both min_value and max_value are null or input is not recognized.');
-  }
+    let where_condition = "";
+    if (min_value !== null && max_value === null) {
+        where_condition = `proportion_of_unique_values ${min_operator} ${min_value}}`;
+    } else if (min_value === null && max_value !== null) {
+        where_condition = `proportion_of_unique_values ${max_operator} ${max_value}`;
+    } else if (min_value !== null && max_value !== null) {
+        where_condition = `proportion_of_unique_values ${min_operator} ${min_value} OR proportion_of_unique_values ${max_operator} ${max_value}`;
+    } else {
+        throw new Error('Invalid input: both min_value and max_value are null or input is not recognized.');
+    }
 
-  // Construct the SQL query
-  const sqlQuery = ctx => `
+    // Construct the SQL query
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM (
@@ -47,6 +47,6 @@ module.exports = (params) => {
       ${where_condition}
   `;
 
-  // Define and return the Dataform assertion
-  return assert(`expect_column_proportion_of_unique_values_to_be_between`).query(sqlQuery);
+    // Define and return the Dataform assertion
+    return assert(`expect_column_proportion_of_unique_values_to_be_between`).query(sqlQuery);
 };

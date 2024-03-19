@@ -8,13 +8,13 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {},
-    value,
-  } = params;
+    const {
+        source = {},
+            value,
+    } = params;
 
-  // Construct the SQL query to count the rows in the table
-  const sqlQuery = ctx => `
+    // Construct the SQL query to count the rows in the table
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM (
@@ -26,6 +26,6 @@ module.exports = (params) => {
       row_count <> ${value}
   `;
 
-  // Define and return the Dataform assertion to check if row count equals the expected value
-  return assert(`expect_table_row_count_to_equal`).query(sqlQuery);
+    // Define and return the Dataform assertion to check if row count equals the expected value
+    return assert(`expect_table_row_count_to_equal`).query(sqlQuery);
 };

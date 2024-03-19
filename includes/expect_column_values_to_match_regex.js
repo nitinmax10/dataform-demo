@@ -9,14 +9,14 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' identifies the table
-    column,
-    regex,
-  } = params;
+    const {
+        source = {}, // Assuming 'source' identifies the table
+            column,
+            regex,
+    } = params;
 
-  // Construct the SQL query to select records that do not match the regex
-  const sqlQuery = ctx => `
+    // Construct the SQL query to select records that do not match the regex
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM
@@ -25,6 +25,6 @@ module.exports = (params) => {
     NOT REGEXP_CONTAINS(${column}, r'${regex}')
   `;
 
-  // Define and return the assertion to check if all records match the regex
-  return assert(`expect_column_values_to_match_regex`).query(sqlQuery);
+    // Define and return the assertion to check if all records match the regex
+    return assert(`expect_column_values_to_match_regex`).query(sqlQuery);
 };

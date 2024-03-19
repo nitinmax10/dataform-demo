@@ -1,4 +1,3 @@
-
 /**
  * Validates if the values in a specified column of a table have lengths within a given range.
  *
@@ -12,28 +11,28 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' identifies the table
-    column,
-    min_value,
-    max_value
-  } = params;
+    const {
+        source = {}, // Assuming 'source' identifies the table
+            column,
+            min_value,
+            max_value
+    } = params;
 
-  if (min_value === null && max_value === null) {
-    throw new Error('Invalid input: Both min_value and max_value cannot be null.');
-  }
+    if (min_value === null && max_value === null) {
+        throw new Error('Invalid input: Both min_value and max_value cannot be null.');
+    }
 
-  let where_condition = "";
-  if (min_value !== null && max_value === null) {
-    where_condition = `LENGTH(${column}) < ${min_value}`;
-  } else if (min_value === null && max_value !== null) {
-    where_condition = `LENGTH(${column}) > ${max_value}`;
-  } else if (min_value !== null && max_value !== null) {
-    where_condition = `LENGTH(${column}) < ${min_value} OR LENGTH(${column}) > ${max_value}`;
-  }
+    let where_condition = "";
+    if (min_value !== null && max_value === null) {
+        where_condition = `LENGTH(${column}) < ${min_value}`;
+    } else if (min_value === null && max_value !== null) {
+        where_condition = `LENGTH(${column}) > ${max_value}`;
+    } else if (min_value !== null && max_value !== null) {
+        where_condition = `LENGTH(${column}) < ${min_value} OR LENGTH(${column}) > ${max_value}`;
+    }
 
-  // Construct the SQL query to check if the column values have the expected length
-  const sqlQuery = ctx => `
+    // Construct the SQL query to check if the column values have the expected length
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM
@@ -41,6 +40,6 @@ module.exports = (params) => {
     WHERE
       ${where_condition}
   `;
-  // Define and return the assertion to check if the column values have the expected length
-  return assert(`expect_column_value_lengths_to_be_between`).query(sqlQuery);
+    // Define and return the assertion to check if the column values have the expected length
+    return assert(`expect_column_value_lengths_to_be_between`).query(sqlQuery);
 };

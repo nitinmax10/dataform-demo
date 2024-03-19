@@ -9,13 +9,15 @@
  * @param {string} options.regex - The regular expression pattern to match against the column values.
  */
 
-const { expect_column_values_to_not_match_regex } = require("dataform-expectations");
+const {
+    expect_column_values_to_not_match_regex
+} = require("dataform-expectations");
 
 expect_column_values_to_not_match_regex({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value",
-  regex: "^[a-z]+$"
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value",
+    regex: "^[a-z]+$"
 });

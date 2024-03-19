@@ -10,12 +10,14 @@
  */
 
 // Example usage
-const { expect_table_row_count_to_be_between } = require("dataform-expectations");
+const {
+    expect_table_row_count_to_be_between
+} = require("dataform-expectations");
 
 expect_table_row_count_to_be_between({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  min_value: 1
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    min_value: 1
 })

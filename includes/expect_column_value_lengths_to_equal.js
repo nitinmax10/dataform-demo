@@ -9,14 +9,14 @@
  */
 
 module.exports = (params) => {
-  const {
-    source = {}, // Assuming 'source' identifies the table
-    column,
-    value,
-  } = params;
+    const {
+        source = {}, // Assuming 'source' identifies the table
+            column,
+            value,
+    } = params;
 
-  // Construct the SQL query to check if the column values have the expected length
-  const sqlQuery = ctx => `
+    // Construct the SQL query to check if the column values have the expected length
+    const sqlQuery = ctx => `
     SELECT
       *
     FROM
@@ -25,6 +25,6 @@ module.exports = (params) => {
       LENGTH(${column}) <> ${value}
   `;
 
-  // Define and return the assertion to check if the column values have the expected length
-  return assert(`expect_column_value_lengths_to_equal`).query(sqlQuery);
+    // Define and return the assertion to check if the column values have the expected length
+    return assert(`expect_column_value_lengths_to_equal`).query(sqlQuery);
 };

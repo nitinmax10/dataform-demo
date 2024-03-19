@@ -10,14 +10,16 @@
  * @param {number} options.max - The maximum value for the column length.
  */
 
-const { expect_column_value_lengths_to_be_between } = require("dataform-expectations");
+const {
+    expect_column_value_lengths_to_be_between
+} = require("dataform-expectations");
 
 expect_column_value_lengths_to_be_between({
-  source: {
-    name: "table_a",
-    schema: "dataform_expectations"
-  },
-  column: "value",
-  min: 1,
-  max: 100
+    source: {
+        name: "table_a",
+        schema: "dataform_expectations"
+    },
+    column: "value",
+    min: 1,
+    max: 100
 });
