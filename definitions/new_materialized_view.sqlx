@@ -1,6 +1,0 @@
-config {
-  type: "view",
-  materialized: true
-}
-
-SELECT * FROM source_data
