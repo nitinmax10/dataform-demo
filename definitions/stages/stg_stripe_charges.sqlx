@@ -1,0 +1,14 @@
+config {
+    type: "table",
+    schema: "sources",
+    tags: ["staging", "daily"],
+    description: "Cleaned version of the raw stripe.charges table."
+}
+
+SELECT
+  id,
+  status AS payment_status,
+  payment_method,
+  COALESCE(CAST(amount AS numeric), 0.0) AS amount
+FROM
+  ${ref("stripe", "charges")}

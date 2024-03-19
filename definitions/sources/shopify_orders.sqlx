@@ -2,6 +2,5 @@ config {
     type: "declaration",
     schema: "shopify",
     name: "orders",
-    tags: ["source"],
     description: "Raw shopify orders table"
 }
